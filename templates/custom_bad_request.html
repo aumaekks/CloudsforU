@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>file not found</title>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .container {
+            max-width: 900px;
+            height: 300px;
+            /* background-color: aquamarine; */
+            margin: 0 auto;
+            border-style: solid;
+            border-width: 1px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin-top: 100px;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 0;
+            display: flex; /* เปิดใช้งาน Flexbox */
+            flex-direction: column; /* แสดงเนื้อหาในลำดับแนวตั้ง */
+            justify-content: center; /* จัดให้เนื้อหาตรงกลางในแนวตั้ง */
+            align-items: center; /* จัดให้เนื้อหาตรงกลางในแนวนอน */
+        }
+        
+        .image-resize {
+            width: 500px; /* ปรับขนาดความกว้างตามที่ต้องการ */
+            height: 400px; /* ปรับขนาดความสูงตามที่ต้องการ */
+        }
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+    </style> 
+    <link rel="icon" type="image/x-icon" href="/static/logo.png">
+</head>
+<body>
+    <!-- สร้างคอนเทนเนอร์สำหรับการจัดรูปและข้อความ -->
+    <video autoplay loop muted id="video-background">
+        <source src="/static/sky_background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <h3 style="color: #030d9b">ไม่พบไฟล์</h3>
+        <h1>ขออภัย กรุณาเลือกภาพถ่ายก่อนกดปุ่มพยากรณ์</h1>
+        <button onclick="window.location.href='/home';"class="btn btn-outline-primary">เลือกภาพถ่าย</button>
+    </div>
+</body>
+</html>

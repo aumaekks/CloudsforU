@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Altocumulus Page</title>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        /* ตั้งค่าสไตล์สำหรับแถบด้านบน */
+        .navbar {
+            background-color: #ffffff9e; /* สีพื้นหลังของแถบด้านบน */
+            height: 150px;
+        }
+
+        /* ตั้งค่าสไตล์สำหรับข้อความในแถบด้านบน */
+        .navbar-text {
+            color: #000000;
+            text-align: center;
+            font-size: 30px;
+            margin: 0;
+            padding: 0;
+           line-height: 1.5;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        
+        .container {
+            max-width: 900px;
+            height: auto;
+            background-color: #ffffff9e;
+            border: 1px solid #ffffff9e;
+            border-radius: 10px;
+            margin: 100px auto;
+            padding: 20px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* ตั้งค่าค่าความทึบของภาพเริ่มต้นเป็น 0 (ซ่อน) */
+            transition: opacity 2s ease; /* ตั้งค่าเอซส์เอสให้ภาพเฉียงให้ดูน้อยลง */
+        }
+
+        .image-resize {
+            width: 500px;
+            height: 400px;
+        }
+
+        body {
+            background-image: url("/static/background.jpg");
+            background-color: #cccccc;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ตั้งค่าสไตล์สำหรับรูปภาพซ้ายบน */
+        .header-image {
+            width: 140px;
+            height: 140px;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            opacity: 0; /* ตั้งค่าค่าความทึบของภาพเริ่มต้นเป็น 0 (ซ่อน) */
+            transition: opacity 3s ease; /* ตั้งค่าเอซส์เอสให้ภาพเฉียงให้ดูน้อยลง */
+        }
+        .fade-in {
+            opacity: 1; /* เปลี่ยนความทึบของภาพและข้อความเป็น 1 (แสดง) */
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="/static/logo.png">
+</head>
+<body>
+    <!-- เพิ่มแถบด้านบน -->
+    <script>
+        window.onload = function() {
+            var headerImage = document.querySelector(".header-image");
+            headerImage.classList.add("fade-in");
+            var container = document.querySelector(".container");
+            container.classList.add("fade-in");
+        }
+        
+    </script>
+    
+    <nav class="navbar navbar-expand-lg">
+        <img src="/static/cloudy.png" alt="Image" class="header-image">
+        <span class="navbar-text" id="weather-text">ไม่มีฝนหรืออาจจะมีฝนเล็กน้อย</span>
+    </nav>
+    
+    <!-- สร้างคอนเทนเนอร์สำหรับการจัดรูปและข้อความ -->
+    <div class="container">
+        <h1>ภาพของคุณคือเมฆ Altocumulus</h1>
+        <p>เมฆอัลโตคิวมูลัสเป็นเมฆระดับกลาง ก่อตัวที่ชั้นโทรโพสเฟียร์ที่ระดับความสูง 7,000–18,000 ฟุต (2,000–5,000 เมตร) เมฆชนิดนี้สามารถก่อตัวได้จากหลายสาเหตุ เช่น การสลายตัวของเมฆอัลโตสเตรตัส หรือการยกตัวของอากาศชื้นที่ถูกทำให้เย็นตัวลงด้วยความปั่นป่วนของอากาศ อัลโตคิวมูลัสมีลักษณะคล้ายกับเซอร์โรคิวมูลัสซึ่งเป็นเมฆที่อยู่ระดับสูงกว่า แต่ต่างกันที่อัลโตคิวมูลัสมีสีขาวและเทา ในขณะที่เซอร์โรคิวมูลัสมีสีขาวและเล็กกว่า</p>
+        <img src="{{ image_url }}" alt="Altocumulus Clouds" class="image-resize"><br>
+        <button onclick="window.location.href='/home';"class="btn btn-outline-primary">เลือกภาพถ่ายอีกครั้ง</button>
+    </div>
+    
+    <!-- เพิ่มส่วนนี้ -->
+    <script>
+        var textElement = document.getElementById("weather-text");
+        var text = textElement.innerText;
+        var index = 0;
+    
+        function displayText() {
+            if (index < text.length) {
+                textElement.innerHTML = text.substring(0, index + 1);
+                index++;
+                setTimeout(displayText, 50); // 100 milliseconds delay between characters
+            }
+        }
+    
+        displayText(); // Start displaying the text
+    </script>
+</body>
+</html>

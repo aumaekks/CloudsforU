@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Not Found</title>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .image-resize {
+            width: 500px; /* ปรับขนาดความกว้างตามที่ต้องการ */
+            height: 400px; /* ปรับขนาดความสูงตามที่ต้องการ */
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="/static/logo.png">
+</head>
+<body>
+    <!-- สร้างคอนเทนเนอร์สำหรับการจัดรูปและข้อความ -->
+    <div class="container">
+        <h1>ไม่พบเมฆในภาพคุณ</h1>
+        <p>ขออภัย กรุณาถ่ายภาพเมฆให้ชัดเจนโดยให้มีสิ่งกีดขวางภาพเมฆน้อยที่สุดเพื่อความแม่นยำในการประมวลผล</p>
+        <p>ลองเปลี่ยนมุมถ่ายภาพดูสิ!</p>
+        <img src="/static/sadclouds.png" alt="not found" class="image-resize"><br>
+        <button onclick="window.location.href='/home';"class="btn btn-outline-primary">เลือกภาพถ่ายอีกครั้ง</button>
+    </div>
+</body>
+</html>
